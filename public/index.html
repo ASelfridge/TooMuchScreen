@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Too Much Screen - A-Frame Experience</title>
+        <script src="/js/aframe.min.js"></script>
+    </head>
+
+    <body>
+
+        <a-scene>
+
+            <a-entity id="camera" position="0 2 0 " camera look-controls></a-entity>
+
+            <a-entity   id="plane"
+                        geometry="primitive: plane; width: 50; height: 50;"
+                        position="0 0 -4"
+                        rotation="-90 0 0" 
+                        shadow="receive: true;"
+                        material="color: blue; roughness: 0.5; metalness: 0.0;">
+            </a-entity>
+
+            <a-box id="cube" color="red" depth="2" height="2" width="2" position="2 2 -7"></a-box>>
+
+        </a-scene>
+
+    </body>
+
+</html>
