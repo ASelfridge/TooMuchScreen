@@ -10,17 +10,50 @@
 
         <a-scene>
 
-            <a-entity id="camera" position="0 2 0 " camera look-controls></a-entity>
+            <a-assets>
+                <img id="skymap" src="assets/textures/starfield.png" />
+            </a-assets>
 
-            <a-entity   id="plane"
-                        geometry="primitive: plane; width: 50; height: 50;"
-                        position="0 0 -4"
-                        rotation="-90 0 0" 
-                        shadow="receive: true;"
-                        material="color: blue; roughness: 0.5; metalness: 0.0;">
+            <a-entity id="camera" position="0 2.15 0" rotation="0 0 0" camera look-controls>
+                <a-entity cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
             </a-entity>
 
-            <a-box id="cube" color="red" depth="2" height="2" width="2" position="2 2 -7"></a-box>>
+            <!-- <a-entity light="color:#ffffec;intensity:0.5;type:spot;angle:5.33;penumbra:0.19;castShadow:true" id="spotlight" rotation="-21 180 0" position="0 10.5 -20"></a-entity> -->
+            <a-entity light="color:#ffffec;intensity:0.5;type:spot;angle:8.51;penumbra:0.19;castShadow:true" id="spotlight" rotation="-19.1 180 0" position="0 4.20296 -7.05878"></a-entity>
+            <a-entity light="target:#desk;color:#ffffec;intensity:0.2;castShadow:true;" id="directionalLight" position="4.5 3 1.5"></a-entity>
+
+            <!-- <a-entity   id="plane"
+                        geometry="primitive: plane"
+                        scale="10 10 10"
+                        position="0 0 0"
+                        rotation="-90 0 0" 
+                        shadow="receive: true;"
+                        material="color: #000000; roughness: 0.5; metalness: 0.0;">
+            </a-entity>
+            <a-entity   id="wall" 
+                        geometry="primitive:plane" 
+                        rotation="0 180 0"
+                        position="0 0 2" 
+                        scale="50 50 50" 
+                        material="color:#000000; roughness: 0.5; metalness: 0.0;" 
+                        shadow="cast:false">
+            </a-entity> -->
+
+            <a-entity id="desk" geometry="primitive: box;" scale="2 1 1" position="0 1.25 -0.6" material="color:#773d09" shadow>
+                    <a-entity id="monitor" geometry="primitive: box;" scale="0.36 0.45 0.03" position="0 0.92758 -0.28593" material="color:blue"></a-entity>
+                    <a-entity id="keyboard" geometry="primitive: box;" scale="0.29 0.03 0.22" position="0 0.51501 0.19908" material="color:grey"></a-entity>
+                    <a-entity id="mouse" geometry="primitive: box;" scale="0.04 -0.06 0.12" position="0.21109 0.49719 0.14086" material="color:grey"></a-entity>
+                    <a-entity id="lamp" geometry="" scale="0.02 0.5 0.02" position="-0.40366 0.74611 -0.35919" material="color:blue">
+                            <a-entity geometry="primitive:sphere" position="0 0.45076 0" id="bulb" scale="0.75 0.07 1.27" material="emissive:#fefeeb"></a-entity>
+                        <a-entity light="color:#ffffec;type:spot;intensity:0.15;angle:22.68;castShadow:true;penumbra:0.61" id="lampLight" position="3.03969 0.60627 1.55585" scale="2.55876 -45.25964 2.5846" visible="" rotation="-34.12765810917235 -55.61185655319283 -74.76927339118704"></a-entity>
+                    </a-entity>
+                    
+            </a-entity>
+
+            <a-entity   id="sky"
+                        geometry="primitive: sphere; radius: 1000"
+                        material="shader: flat; src: #skymap; side: back">
+            </a-entity>
 
         </a-scene>
 
