@@ -4,18 +4,29 @@
     <head>
         <title>Too Much Screen - A-Frame Experience</title>
         <script src="/js/aframe.min.js"></script>
+        <script src="/js/object-pickup.js"></script>
+        <script src="/js/menu-hover.js"></script>
+        <script src="/js/menu-put-back.js"></script>
     </head>
 
     <body>
 
-        <a-scene>
+        <a-scene id="scene">
 
             <a-assets>
                 <img id="skymap" src="assets/textures/starfield.png" />
             </a-assets>
 
             <a-entity id="camera" position="0 2.15 0" rotation="0 0 0" camera look-controls>
-                <a-entity cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
+                <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -0.5"></a-entity>
+                <a-entity visible="false" id="radialMenu" position="0 0 -0.5" rotation="0 0 30">
+                        <a-entity menu-hover menu-put-back id="menuTop" geometry="primitive:circle; radius: 0.1; thetaLength: 120;" position="0.002 0.004 0.1" material="color:white; opacity: 0.2; shader: flat;">
+                            <a-text value="Put Back" text="align: center; color: red;" position="0.03 0.05 0.002" rotation="0 0 -30" scale="0.1 0.1 0.1"></a-text>
+                        </a-entity>
+                        <a-entity menu-hover id="menuLeft" geometry="primitive:circle; radius: 0.1; thetaLength: 120;" position="-0.002 0.001 0.1" rotation="0 0 120" material="color:white; opacity: 0.2; shader: flat;"></a-entity>
+                        <a-entity menu-hover id="menuRight" geometry="primitive:circle; radius: 0.1; thetaLength: 120;" position="0.002 -0.001 0.1" rotation="0 0 240" material="color:white; opacity: 0.2; shader: flat;"></a-entity>
+                        <a-entity id="menuCenter" geometry="primitive:circle; radius: 0.015" position="0 0 0.1" material="color:white; shader: flat;"></a-entity>
+                </a-entity>
             </a-entity>
 
             <!-- <a-entity light="color:#ffffec;intensity:0.5;type:spot;angle:5.33;penumbra:0.19;castShadow:true" id="spotlight" rotation="-21 180 0" position="0 10.5 -20"></a-entity> -->
@@ -41,8 +52,8 @@
 
             <a-entity id="desk" geometry="primitive: box;" scale="2 1 1" position="0 1.25 -0.6" material="color:#773d09" shadow>
                     <a-entity id="monitor" geometry="primitive: box;" scale="0.36 0.45 0.03" position="0 0.92758 -0.28593" material="color:blue"></a-entity>
-                    <a-entity id="keyboard" geometry="primitive: box;" scale="0.29 0.03 0.22" position="0 0.51501 0.19908" material="color:grey"></a-entity>
-                    <a-entity id="mouse" geometry="primitive: box;" scale="0.04 -0.06 0.12" position="0.21109 0.49719 0.14086" material="color:grey"></a-entity>
+                    <a-entity object-pickup id="keyboard" geometry="primitive: box;" scale="0.29 0.03 0.22" position="0 0.51501 0.19908" material="color:grey"></a-entity>
+                    <a-entity object-pickup id="mouse" geometry="primitive: box;" scale="0.04 -0.06 0.12" position="0.21109 0.49719 0.14086" material="color:grey"></a-entity>
                     <a-entity id="lamp" geometry="" scale="0.02 0.5 0.02" position="-0.40366 0.74611 -0.35919" material="color:blue">
                             <a-entity geometry="primitive:sphere" position="0 0.45076 0" id="bulb" scale="0.75 0.07 1.27" material="emissive:#fefeeb"></a-entity>
                         <a-entity light="color:#ffffec;type:spot;intensity:0.15;angle:22.68;castShadow:true;penumbra:0.61" id="lampLight" position="3.03969 0.60627 1.55585" scale="2.55876 -45.25964 2.5846" visible="" rotation="-34.12765810917235 -55.61185655319283 -74.76927339118704"></a-entity>
@@ -56,6 +67,15 @@
             </a-entity>
 
         </a-scene>
+
+        <script>
+            // will need to move this code into it's own component
+            document.addEventListener('keyup', function(e) {
+                if(e.keyCode == 32 && document.getElementById('scene').objectSelected != null) {
+                    document.getElementById("radialMenu").object3D.visible = true;
+                }
+            });
+        </script>
 
     </body>
 
