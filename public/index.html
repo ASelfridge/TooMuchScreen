@@ -7,11 +7,8 @@
         <script src="/js/object-pickup.js"></script>
         <script src="/js/menu-hover.js"></script>
         <script src="/js/menu-put-back.js"></script>
-<<<<<<< HEAD
         <script src="/js/object-transform.js"></script>
-=======
         <script src="/js/play-sound.js"></script>
->>>>>>> Added play-sound component to play a sound file on click of entity
     </head>
 
     <body>
@@ -21,7 +18,6 @@
             <a-assets>
                 <img id="skymap" src="assets/textures/starfield.png" />
 
-<<<<<<< HEAD
                 <a-asset-item id="keyboard-model" src="/assets/models/keyboard.obj"></a-asset-item>
                 <a-asset-item id="mouse-model" src="/assets/models/mouse.obj"></a-asset-item>
                 <a-asset-item id="monitor-model" src="/assets/models/monitor.obj"></a-asset-item>
@@ -29,9 +25,10 @@
                 <a-asset-item id="typewriter-model" src="/assets/models/typewriter.obj"></a-asset-item>
                 <a-asset-item id="floorLamp-model" src="/assets/models/floorLamp.obj"></a-asset-item>
                 <a-asset-item id="pencil-model" src="/assets/models/pencil.obj"></a-asset-item>
-=======
+                
                 <a-asset-item crossorigin="anonymous" id="keyboard-typing" src="/assets/sounds/keyboard-typing.mp3" response-type="arraybuffer"></a-asset-item>
->>>>>>> Added play-sound component to play a sound file on click of entity
+                <a-asset-item crossorigin="anonymous" id="mouse-click" src="/assets/sounds/mouse-click.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="lamp-pull" src="/assets/sounds/lamp-pull.mp3" response-type="arraybuffer"></a-asset-item>
             </a-assets>
 
             <a-entity id="camera" position="0 2.3 0" rotation="0 0 0" camera look-controls>
@@ -53,51 +50,47 @@
 
            
             <a-entity id="desk" geometry="primitive: box;" scale="2 1 1" position="0 1.25 -0.6" material="color:#773d09" shadow>
-<<<<<<< HEAD
-                    <a-entity   id="monitor" 
+                    <a-entity   id="monitor"
                                 obj-model="obj: #monitor-model"
                                 scale="0.03886 0.08052 0.0859" 
                                 position="0 0.49717 -0.38943" 
                                 material="color:blue">
                     </a-entity>
                     <a-entity   object-transform="menu: menuLeft; model: #typewriter-model; scale: 0.03368 0.05707 0.05707; rotation: 0 0 0; color: pink" 
-                                object-pickup id="keyboard" 
+                                object-pickup id="keyboard"
+                                play-sound 
                                 obj-model="obj: #keyboard-model" 
                                 rotation="0 180 0"
                                 scale="0.03368 0.05707 0.05707" 
                                 position="-0.0471 0.50184 0.11847" 
-                                material="color:red">
+                                material="color:red"
+                                sound="src: #keyboard-typing">
                     </a-entity>
                     <a-entity   object-pickup
                                 object-transform="menu: menuLeft; model: #pencil-model; scale: 0.032 0.064 0.064; rotation: 0 0 0; color: yellow"
                                 id="mouse" 
+                                play-sound
                                 obj-model="obj: #mouse-model" 
                                 scale="0.032 0.064 0.064"
                                 rotation="0 180 0" 
                                 position="0.262 0.49863 0.14086" 
-                                material="color:red">
+                                material="color:red"
+                                sound="src: #mouse-click">
                     </a-entity>
                     <a-entity id="mousepad" geometry="" position="0.25506 0.4981 0.13584" rotation="0 -5 0" scale="0.32939 0.00494 0.49404" material="color:black"></a-entity>
                     <a-entity   object-pickup
                                 object-transform="menu: menuLeft; model: #floorLamp-model; scale: 0.03409 0.0605 0.0605; rotation: 0 0 0; color: purple"
+                                play-sound
                                 id="lamp" 
                                 obj-model="obj: #lamp-model" 
                                 scale="0.03409 0.0605 0.0605" 
                                 position="-0.40366 0.50206 -0.34041" 
-                                material="color:green">
+                                material="color:green"
+                                sound="src: #lamp-pull">
                         <a-entity geometry="primitive:sphere" position="0 11.04113 5.66264" id="bulb" scale="0.48655 0.56579 0.54921" material="emissive:#fefeeb"></a-entity>
                         <a-entity light="color:#ffffec;type:spot;intensity:0.48;angle:37.71;castShadow:true;penumbra:0.53" id="lampLight" position="-0.01589 10.69643 5.69542" scale="" visible="" rotation="-73.088 -108.67186 0"></a-entity>
-=======
-                    <a-entity id="monitor" geometry="primitive: box;" scale="0.36 0.45 0.03" position="0 0.92758 -0.28593" material="color:blue"></a-entity>
-                    <a-entity play-sound object-pickup id="keyboard" geometry="primitive: box;" scale="0.29 0.03 0.22" position="0 0.51501 0.19908" material="color:grey" sound="src: #keyboard-typing"></a-entity>
-                    <a-entity object-pickup id="mouse" geometry="primitive: box;" scale="0.04 -0.06 0.12" position="0.21109 0.49719 0.14086" material="color:grey"></a-entity>
-                    <a-entity object-pickup id="lamp" geometry="" scale="0.02 0.5 0.02" position="-0.40366 0.74611 -0.35919" material="color:blue">
-                            <a-entity geometry="primitive:sphere" position="0 0.45076 0" id="bulb" scale="0.75 0.07 1.27" material="emissive:#fefeeb"></a-entity>
-                        <a-entity light="color:#ffffec;type:spot;intensity:0.15;angle:22.68;castShadow:true;penumbra:0.61" id="lampLight" position="3.03969 0.60627 1.55585" scale="2.55876 -45.25964 2.5846" visible="" rotation="-34.12765810917235 -55.61185655319283 -74.76927339118704"></a-entity>
->>>>>>> Added play-sound component to play a sound file on click of entity
-                    </a-entity>
                     
-            </a-entity>
+                    </a-entity>
 
             <a-entity   id="sky"
                         geometry="primitive: sphere; radius: 1000"
