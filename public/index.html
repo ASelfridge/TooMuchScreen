@@ -28,7 +28,7 @@
 
             <a-entity id="camera" position="0 2.3 0" rotation="0 0 0" camera look-controls>
                 <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -0.5" scale="1.3 1 0.8"></a-entity>
-                <a-entity visible="false" id="radialMenu" position="0 0 -0.5" rotation="0 0 30">
+                <a-entity visible="false" id="radialMenu" position="0 0 -0.45" rotation="0 0 30">
                         <a-entity menu-hover menu-put-back id="menuTop" geometry="primitive:circle; radius: 0.1; thetaLength: 120;" position="0.002 0.004 0.1" material="color:white; opacity: 0.2; shader: flat;">
                             <a-text value="Put Back" text="align: center; color: red;" position="0.03 0.05 0.002" rotation="0 0 -30" scale="0.1 0.1 0.1"></a-text>
                         </a-entity>
@@ -40,26 +40,8 @@
                 </a-entity>
             </a-entity>
 
-            <!-- <a-entity light="color:#ffffec;intensity:0.5;type:spot;angle:5.33;penumbra:0.19;castShadow:true" id="spotlight" rotation="-21 180 0" position="0 10.5 -20"></a-entity> -->
             <a-entity light="color:#ffffec;intensity:0.5;type:spot;angle:8.51;penumbra:0.19;castShadow:true" id="spotlight" rotation="-19.1 180 0" position="0 4.20296 -7.05878"></a-entity>
             <a-entity light="target:#desk;color:#ffffec;intensity:0.2;castShadow:true;" id="directionalLight" position="4.5 3 1.5"></a-entity>
-
-            <!-- <a-entity   id="plane"
-                        geometry="primitive: plane"
-                        scale="10 10 10"
-                        position="0 0 0"
-                        rotation="-90 0 0" 
-                        shadow="receive: true;"
-                        material="color: #000000; roughness: 0.5; metalness: 0.0;">
-            </a-entity>
-            <a-entity   id="wall" 
-                        geometry="primitive:plane" 
-                        rotation="0 180 0"
-                        position="0 0 2" 
-                        scale="50 50 50" 
-                        material="color:#000000; roughness: 0.5; metalness: 0.0;" 
-                        shadow="cast:false">
-            </a-entity> -->
 
            
             <a-entity id="desk" geometry="primitive: box;" scale="2 1 1" position="0 1.25 -0.6" material="color:#773d09" shadow>
@@ -69,14 +51,6 @@
                                 position="0 0.49717 -0.38943" 
                                 material="color:blue">
                     </a-entity>
-                    <!-- <a-entity   object-transform="menu: menuLeft; geometry: sphere; scale: 0.1 0.1 0.1" 
-                                object-pickup id="typewriter" 
-                                obj-model="obj: #typewriter-model" 
-                                rotation="0 0 0"
-                                scale="0.03368 0.05707 0.05707" 
-                                position="-0.0471 0.50184 0.11847" 
-                                material="color:pink">
-                    </a-entity> -->
                     <a-entity   object-transform="menu: menuLeft; model: #typewriter-model; scale: 0.03368 0.05707 0.05707; rotation: 0 0 0; color: pink" 
                                 object-pickup id="keyboard" 
                                 obj-model="obj: #keyboard-model" 

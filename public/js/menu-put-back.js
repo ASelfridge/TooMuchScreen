@@ -5,7 +5,6 @@ AFRAME.registerComponent('menu-put-back', {
         const el = Context_AF.el;
 
         el.addEventListener('mousedown', function() {
-            console.log("click!");
             // highlight selected button
             document.getElementById(el.id).setAttribute('material', 'opacity: 1');
 
