@@ -21,6 +21,9 @@
                 <a-asset-item id="mouse-model" src="/assets/models/mouse.obj"></a-asset-item>
                 <a-asset-item id="monitor-model" src="/assets/models/monitor.obj"></a-asset-item>
                 <a-asset-item id="lamp-model" src="/assets/models/lamp.obj"></a-asset-item>
+                <a-asset-item id="typewriter-model" src="/assets/models/typewriter.obj"></a-asset-item>
+                <a-asset-item id="floorLamp-model" src="/assets/models/floorLamp.obj"></a-asset-item>
+                <a-asset-item id="pencil-model" src="/assets/models/pencil.obj"></a-asset-item>
             </a-assets>
 
             <a-entity id="camera" position="0 2.3 0" rotation="0 0 0" camera look-controls>
@@ -29,7 +32,9 @@
                         <a-entity menu-hover menu-put-back id="menuTop" geometry="primitive:circle; radius: 0.1; thetaLength: 120;" position="0.002 0.004 0.1" material="color:white; opacity: 0.2; shader: flat;">
                             <a-text value="Put Back" text="align: center; color: red;" position="0.03 0.05 0.002" rotation="0 0 -30" scale="0.1 0.1 0.1"></a-text>
                         </a-entity>
-                        <a-entity menu-hover id="menuLeft" geometry="primitive:circle; radius: 0.1; thetaLength: 120;" position="-0.002 0.001 0.1" rotation="0 0 120" material="color:white; opacity: 0.2; shader: flat;"></a-entity>
+                        <a-entity menu-hover id="menuLeft" geometry="primitive:circle; radius: 0.1; thetaLength: 120;" position="-0.002 0.001 0.1" rotation="0 0 120" material="color:white; opacity: 0.2; shader: flat;">
+                                <a-text value="Swap" text="align: center; color: red;" position="0.03 0.05 0.002" rotation="0 0 -150" scale="0.1 0.1 0.1"></a-text>
+                        </a-entity>
                         <a-entity menu-hover id="menuRight" geometry="primitive:circle; radius: 0.1; thetaLength: 120;" position="0.002 -0.001 0.1" rotation="0 0 240" material="color:white; opacity: 0.2; shader: flat;"></a-entity>
                         <a-entity id="menuCenter" geometry="primitive:circle; radius: 0.015" position="0 0 0.1" material="color:white; shader: flat;"></a-entity>
                 </a-entity>
@@ -64,7 +69,15 @@
                                 position="0 0.49717 -0.38943" 
                                 material="color:blue">
                     </a-entity>
-                    <a-entity   object-transform="menu: menuLeft; geometry: sphere; scale: 0.1 0.1 0.1" 
+                    <!-- <a-entity   object-transform="menu: menuLeft; geometry: sphere; scale: 0.1 0.1 0.1" 
+                                object-pickup id="typewriter" 
+                                obj-model="obj: #typewriter-model" 
+                                rotation="0 0 0"
+                                scale="0.03368 0.05707 0.05707" 
+                                position="-0.0471 0.50184 0.11847" 
+                                material="color:pink">
+                    </a-entity> -->
+                    <a-entity   object-transform="menu: menuLeft; model: #typewriter-model; scale: 0.03368 0.05707 0.05707; rotation: 0 0 0; color: pink" 
                                 object-pickup id="keyboard" 
                                 obj-model="obj: #keyboard-model" 
                                 rotation="0 180 0"
@@ -72,17 +85,23 @@
                                 position="-0.0471 0.50184 0.11847" 
                                 material="color:red">
                     </a-entity>
-                    <a-entity   object-pickup 
+                    <a-entity   object-pickup
+                                object-transform="menu: menuLeft; model: #pencil-model; scale: 0.032 0.064 0.064; rotation: 0 0 0; color: yellow"
                                 id="mouse" 
                                 obj-model="obj: #mouse-model" 
                                 scale="0.032 0.064 0.064"
                                 rotation="0 180 0" 
                                 position="0.262 0.49863 0.14086" 
                                 material="color:red">
-                                
                     </a-entity>
                     <a-entity id="mousepad" geometry="" position="0.25506 0.4981 0.13584" rotation="0 -5 0" scale="0.32939 0.00494 0.49404" material="color:black"></a-entity>
-                    <a-entity id="lamp" obj-model="obj: #lamp-model" scale="0.03409 0.0605 0.0605" position="-0.40366 0.50206 -0.34041" material="color:green">
+                    <a-entity   object-pickup
+                                object-transform="menu: menuLeft; model: #floorLamp-model; scale: 0.03409 0.0605 0.0605; rotation: 0 0 0; color: purple"
+                                id="lamp" 
+                                obj-model="obj: #lamp-model" 
+                                scale="0.03409 0.0605 0.0605" 
+                                position="-0.40366 0.50206 -0.34041" 
+                                material="color:green">
                         <a-entity geometry="primitive:sphere" position="0 11.04113 5.66264" id="bulb" scale="0.48655 0.56579 0.54921" material="emissive:#fefeeb"></a-entity>
                         <a-entity light="color:#ffffec;type:spot;intensity:0.48;angle:37.71;castShadow:true;penumbra:0.53" id="lampLight" position="-0.01589 10.69643 5.69542" scale="" visible="" rotation="-73.088 -108.67186 0"></a-entity>
                     </a-entity>

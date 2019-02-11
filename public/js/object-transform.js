@@ -1,8 +1,10 @@
 AFRAME.registerComponent('object-transform', {
     schema: {
         menu: {},
-        geometry: {},
+        model: {},
         scale: {default: '1 1 1'},
+        rotation: {default: '0 0 0'},
+        color: {default: 'pink'}
     },
     init: function() {
         const Context_AF = this;
@@ -20,14 +22,17 @@ AFRAME.registerComponent('object-transform', {
             if(el.id == selectedID){
                 let selectedPos = el.ogPos;
 
-                // convert scale string to array
+                // convert data strings to array
+                let rot = data.rotation.split(" ");
                 let scale = data.scale.split(" ");
 
                 // create transform object
                 let transformObj = document.createElement('a-entity');
-                transformObj.setAttribute('geometry', {primitive: data.geometry});
+                transformObj.setAttribute('obj-model', 'obj: ' + data.model);
                 transformObj.setAttribute('position', {x: selectedPos.x, y: selectedPos.y, z: selectedPos.z});
                 transformObj.setAttribute('scale', {x: scale[0], y: scale[1], z: scale[2]});
+                transformObj.setAttribute('rotation', {x: rot[0], y: rot[1], z: rot[2]});
+                transformObj.setAttribute('material', 'color: ' + data.color);
 
                 // add under same parent as this object
                 let parent = document.getElementById(el.ogParent);
