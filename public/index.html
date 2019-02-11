@@ -47,6 +47,7 @@
                 </a-entity>
             </a-entity>
 
+            <a-entity light="type:ambient;intensity:0.15" id="ambientLight"></a-entity>
             <a-entity light="color:#ffffec;intensity:0.5;type:spot;angle:8.51;penumbra:0.19;castShadow:true" id="spotlight" rotation="-19.1 180 0" position="0 4.20296 -7.05878"></a-entity>
             <a-entity light="target:#desk;color:#ffffec;intensity:0.2;castShadow:true;" id="directionalLight" position="4.5 3 1.5"></a-entity>
 
@@ -56,7 +57,7 @@
                                 obj-model="obj: #monitor-model"
                                 scale="0.03886 0.08052 0.0859" 
                                 position="0 0.49717 -0.38943" 
-                                material="color:blue">
+                                material="color:grey">
                     </a-entity>
                     <a-entity   object-transform="menu: menuLeft; model: #typewriter-model; scale: 0.03368 0.05707 0.05707; rotation: 0 0 0; color: pink" 
                                 object-pickup id="keyboard"
@@ -65,7 +66,7 @@
                                 rotation="0 180 0"
                                 scale="0.03368 0.05707 0.05707" 
                                 position="-0.0471 0.50184 0.11847" 
-                                material="color:red"
+                                material="color:#e6e6e6"
                                 sound="src: #keyboard-typing">
                     </a-entity>
                     <a-entity   object-pickup
