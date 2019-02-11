@@ -79,7 +79,9 @@
                                 rotation="0 180 0" 
                                 position="0.262 0.49863 0.14086" 
                                 material="color:red">
+                                
                     </a-entity>
+                    <a-entity id="mousepad" geometry="" position="0.25506 0.4981 0.13584" rotation="0 -5 0" scale="0.32939 0.00494 0.49404" material="color:black"></a-entity>
                     <a-entity id="lamp" obj-model="obj: #lamp-model" scale="0.03409 0.0605 0.0605" position="-0.40366 0.50206 -0.34041" material="color:green">
                         <a-entity geometry="primitive:sphere" position="0 11.04113 5.66264" id="bulb" scale="0.48655 0.56579 0.54921" material="emissive:#fefeeb"></a-entity>
                         <a-entity light="color:#ffffec;type:spot;intensity:0.48;angle:37.71;castShadow:true;penumbra:0.53" id="lampLight" position="-0.01589 10.69643 5.69542" scale="" visible="" rotation="-73.088 -108.67186 0"></a-entity>
@@ -89,7 +91,7 @@
 
             <a-entity   id="sky"
                         geometry="primitive: sphere; radius: 1000"
-                        material="shader: flat; src: #skymap; side: back">
+                        material="shader: flat; color: black; side: back">
             </a-entity>
 
         </a-scene>
