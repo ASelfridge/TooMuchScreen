@@ -4,9 +4,11 @@
     <head>
         <title>Too Much Screen - A-Frame Experience</title>
         <script src="/js/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
         <script src="/js/object-pickup.js"></script>
         <script src="/js/menu-hover.js"></script>
         <script src="/js/menu-put-back.js"></script>
+        <script src="/js/object-transform.js"></script>
     </head>
 
     <body>
@@ -52,8 +54,14 @@
 
             <a-entity id="desk" geometry="primitive: box;" scale="2 1 1" position="0 1.25 -0.6" material="color:#773d09" shadow>
                     <a-entity id="monitor" geometry="primitive: box;" scale="0.36 0.45 0.03" position="0 0.92758 -0.28593" material="color:blue"></a-entity>
-                    <a-entity object-pickup id="keyboard" geometry="primitive: box;" scale="0.29 0.03 0.22" position="0 0.51501 0.19908" material="color:grey"></a-entity>
-                    <a-entity object-pickup id="mouse" geometry="primitive: box;" scale="0.04 -0.06 0.12" position="0.21109 0.49719 0.14086" material="color:grey"></a-entity>
+                    <a-entity   object-transform="menu: menuLeft; geometry: sphere; scale: 0.1 0.1 0.1" 
+                                object-pickup id="keyboard" 
+                                geometry="primitive: box;" 
+                                scale="0.29 0.03 0.22" 
+                                position="0 0.51501 0.19908" 
+                                material="color:grey">
+                    </a-entity>
+                    <a-entity object-transform="menu: menuLeft; geometry: box; scale: 0.1 0.3 0.1" object-pickup id="mouse" geometry="primitive: box;" scale="0.04 -0.06 0.12" position="0.21109 0.49719 0.14086" material="color:grey"></a-entity>
                     <a-entity id="lamp" geometry="" scale="0.02 0.5 0.02" position="-0.40366 0.74611 -0.35919" material="color:blue">
                             <a-entity geometry="primitive:sphere" position="0 0.45076 0" id="bulb" scale="0.75 0.07 1.27" material="emissive:#fefeeb"></a-entity>
                         <a-entity light="color:#ffffec;type:spot;intensity:0.15;angle:22.68;castShadow:true;penumbra:0.61" id="lampLight" position="3.03969 0.60627 1.55585" scale="2.55876 -45.25964 2.5846" visible="" rotation="-34.12765810917235 -55.61185655319283 -74.76927339118704"></a-entity>
